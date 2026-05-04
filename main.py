@@ -1,16 +1,28 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import Game_logic
+import AI_agent
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    print("\nSudoku AI Solver!")
+    print("START filling the board(q to end)")
+    board = Game_logic.Board()
+    board.create_board()
+    board.print_board()
+    board.enter_value()
+    print("\nBoard after user input:")
+    board.print_board()
+    print("\nSudoku ready. AI solving...")
+    solver = AI_agent.SudokuSolver(board)
+    
+    if solver.solve():
+        solver.print_solution()
+    else:
+        print("Unsolvable!")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+if __name__ == "__main__":
+    main()
