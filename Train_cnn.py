@@ -14,7 +14,7 @@ def train():
         transforms.RandomAffine(
             degrees=15,  # Döndürme (Rotation yerine burada tek seferde yapıyoruz)
             translate=(0.1, 0.1),  # Kaydırma
-            scale=(0.8, 1.1),  # %80 ile %110 arası büyüklük (Sudoku için 1.2 çok büyük gelebilir)
+            scale=(0.8, 1.1),  # %80 ile %110 arası büyüklük
             shear=5  # Hafifçe yana yatırma (İtalik fontlar için harikadır)
         ),
         transforms.ToTensor(),
@@ -45,7 +45,6 @@ def train():
 
             running_loss += loss.item()
 
-            # Accuracy Hesaplama
             _, predicted = torch.max(output.data, 1)
             total += target.size(0)
             correct += (predicted == target).sum().item()
@@ -53,7 +52,6 @@ def train():
         accuracy = 100 * correct / total
         print(f"Epoch {epoch + 1}/{epochs} -> Loss: {running_loss / len(train_loader):.4f} | Accuracy: %{accuracy:.2f}")
 
-    # Modeli kaydet
     torch.save(model.state_dict(), "digit_cnn.pth")
     print("Yapay Zeka modeli başarıyla eğitildi ve 'digit_cnn.pth' olarak kaydedildi!")
 

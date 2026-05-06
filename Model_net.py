@@ -10,7 +10,7 @@ class DigitCNN(nn.Module):
         self.pool = nn.MaxPool2d(2, 2)
         # 28x28 boyutundaki görsel iki kez havuzlamadan (pooling) sonra 7x7 boyutuna düşer
         self.fc1 = nn.Linear(32 * 7 * 7, 128)
-        self.fc2 = nn.Linear(128, 10)  # 0-9 arası sınıflar
+        self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
         x = self.pool(f.relu(self.conv1(x)))

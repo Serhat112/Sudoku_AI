@@ -5,7 +5,6 @@ import torch
 from torchvision import transforms
 from Model_net import DigitCNN
 
-
 class SudokuVision:
     def __init__(self, image_path):
         self.image_path = image_path
@@ -45,7 +44,6 @@ class SudokuVision:
         # --- YENİ MANTIK ---
 
         # 1. Rakamı MNIST standartlarında 20x20'lik bir alana sığdır
-        # (Önceki 16'yı 20 yapıyoruz, çünkü artık merkezleme daha iyi)
         grid_size = 28
         target_size = 13
 
@@ -135,7 +133,7 @@ class SudokuVision:
 
                 if centered_digit is not None:
                     # Model tahmini
-                    tensor_img = transform(centered_digit).unsqueeze(0)  # Batch boyutu ekle (1, 1, 28, 28)
+                    tensor_img = transform(centered_digit).unsqueeze(0)
 
                     with torch.no_grad():
                         output = self.model(tensor_img)
