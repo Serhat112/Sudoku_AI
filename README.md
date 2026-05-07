@@ -57,7 +57,7 @@ python main.py
 2. Run the program
 3. Click on first cell within 5 seconds
 4. Bot will automatically write the entire solution
-
+5. To find grid coordinates, use pyautogui.screenshot() and pyautogui.displayMousePosition()
 ## Notes
 
 - Model trained with MNIST data
@@ -74,6 +74,3 @@ python Train_cnn.py
 
 For debug mode, check debug_cells folder.
 
-## License
-
-MIT License
