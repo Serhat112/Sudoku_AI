@@ -24,6 +24,10 @@ debug_cells/
 temp/
 tmp/
 
+# Captured screenshots (keep example sudoku.png)
+captured_*.png
+!sudoku.png
+
 # Keep only the trained model, ignore training scripts outputs
 # digit_cnn.pth - KEEP (trained weights)
 # Train_cnn.py - KEEP (training script for reference)
